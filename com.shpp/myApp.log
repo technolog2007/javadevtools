@@ -1,0 +1,3 @@
+2022-10-14 00:37:59,892 DEBUG [main] l.ConsoleLogbackLogger [ConsoleLogbackLogger.java:11] Debug log message
+2022-10-14 00:37:59,903 INFO [main] l.ConsoleLogbackLogger [ConsoleLogbackLogger.java:12] Info log message
+2022-10-14 00:37:59,904 ERROR [main] l.ConsoleLogbackLogger [ConsoleLogbackLogger.java:13] Error log message
