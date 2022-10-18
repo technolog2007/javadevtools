@@ -63,6 +63,9 @@
                                     <mainClass>com.shpp.level1.MyProperties</mainClass>
                                     <classpathPrefix>lib/</classpathPrefix>
                                 </manifest>
+                                <manifestEntries>
+                                    <Class-Path>config/</Class-Path>
+                                </manifestEntries>
                             </archive>
                         </configuration>
                     </plugin>
@@ -95,17 +98,17 @@
                                     <addClasspath>true</addClasspath>
                                 </manifest>
                             </archive>
-<!--                            <descriptorRefs>-->
-                                <!--Возможные варианты настроенного дескриптора bin, jar-with-dependencies, src, project
-                                bin - пакует в простой jar;
-                                src - просто копирует src;
-                                jar-with-dependencies - формирует fat-jar;
-                                project - копирует весь проект
-                                -->
-                                <!--                        <descriptorRef>-->
-                                <!--                            bin-->
-                                <!--                        </descriptorRef>-->
-<!--                            </descriptorRefs>-->
+                            <!--                            <descriptorRefs>-->
+                            <!--Возможные варианты настроенного дескриптора bin, jar-with-dependencies, src, project
+                            bin - пакует в простой jar;
+                            src - просто копирует src;
+                            jar-with-dependencies - формирует fat-jar;
+                            project - копирует весь проект
+                            -->
+                            <!--                        <descriptorRef>-->
+                            <!--                            bin-->
+                            <!--                        </descriptorRef>-->
+                            <!--                            </descriptorRefs>-->
                             <!--                    <descriptorRefs>-->
                             <!--                        <descriptorRef>jar-with-dependencies</descriptorRef>-->
                             <!--                    </descriptorRefs>-->
@@ -138,6 +141,7 @@
                         <filtering>true</filtering>
                         <excludes>
                             <exclude>**/app.properties</exclude>
+                            <exclude>**/logback.xml</exclude>
                         </excludes>
                     </resource>
                 </resources>
@@ -164,6 +168,9 @@
                                 <manifest>
                                     <addClasspath>true</addClasspath>
                                 </manifest>
+                                <manifestEntries>
+                                    <Class-Path>config/</Class-Path>
+                                </manifestEntries>
                             </archive>
                         </configuration>
                     </plugin>
@@ -189,7 +196,63 @@
                             </execution>
                         </executions>
                     </plugin>
+                    <plugin>
+                        <groupId>org.apache.maven.plugins</groupId>
+                        <artifactId>maven-assembly-plugin</artifactId>
+                        <version>3.4.2</version>
+                        <executions>
+                            <execution>
+                                <phase>package</phase>
+                                <goals>
+                                    <goal>single</goal>
+                                </goals>
+                                <configuration>
+                                    <descriptors>
+                                        <descriptor>${project.basedir}/src/assembly/depShade.xml</descriptor>
+                                    </descriptors>
+                                    <appendAssemblyId>false</appendAssemblyId>
+                                </configuration>
+                            </execution>
+                        </executions>
+                        <configuration>
+                            <formats>
+                                <!-- Упаковывает в zip-архив -->
+                                <format>zip</format>
+                            </formats>
+                            <archive>
+                                <manifest>
+                                    <mainClass>com.shpp.level1.MyProperties</mainClass>
+                                    <addClasspath>true</addClasspath>
+                                </manifest>
+                            </archive>
+                            <!--                            <descriptorRefs>-->
+                            <!--Возможные варианты настроенного дескриптора bin, jar-with-dependencies, src, project
+                            bin - пакует в простой jar;
+                            src - просто копирует src;
+                            jar-with-dependencies - формирует fat-jar;
+                            project - копирует весь проект
+                            -->
+                            <!--                        <descriptorRef>-->
+                            <!--                            bin-->
+                            <!--                        </descriptorRef>-->
+                            <!--                            </descriptorRefs>-->
+                            <!--                    <descriptorRefs>-->
+                            <!--                        <descriptorRef>jar-with-dependencies</descriptorRef>-->
+                            <!--                    </descriptorRefs>-->
+                            <descriptorSourceDirectory>assembly/depShade.xml</descriptorSourceDirectory>
+                        </configuration>
+                    </plugin>
                 </plugins>
+                <resources>
+                    <resource>
+                        <directory>src/main/resources</directory>
+                        <filtering>true</filtering>
+                        <excludes>
+                            <exclude>**/app.properties</exclude>
+                            <exclude>**/logback.xml</exclude>
+                        </excludes>
+                    </resource>
+                </resources>
             </build>
         </profile>
     </profiles>
