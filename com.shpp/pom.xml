@@ -60,7 +60,7 @@
                             <archive>
                                 <manifest>
                                     <addClasspath>true</addClasspath>
-                                    <mainClass>com.shpp.level1.MyProperties</mainClass>
+                                    <mainClass>com.shpp.level1.MyClass</mainClass>
                                     <classpathPrefix>lib/</classpathPrefix>
                                 </manifest>
                                 <manifestEntries>
@@ -94,7 +94,7 @@
                             </formats>
                             <archive>
                                 <manifest>
-                                    <mainClass>com.shpp.level1.MyProperties</mainClass>
+                                    <mainClass>com.shpp.level1.MyClass</mainClass>
                                     <addClasspath>true</addClasspath>
                                 </manifest>
                             </archive>
@@ -189,7 +189,7 @@
                                     <transformers>
                                         <transformer
                                                 implementation="org.apache.maven.plugins.shade.resource.ManifestResourceTransformer">
-                                            <mainClass>com.shpp.level1.MyProperties</mainClass>
+                                            <mainClass>com.shpp.level1.MyClass</mainClass>
                                         </transformer>
                                     </transformers>
                                 </configuration>
@@ -221,7 +221,7 @@
                             </formats>
                             <archive>
                                 <manifest>
-                                    <mainClass>com.shpp.level1.MyProperties</mainClass>
+                                    <mainClass>com.shpp.level1.MyClass</mainClass>
                                     <addClasspath>true</addClasspath>
                                 </manifest>
                             </archive>
