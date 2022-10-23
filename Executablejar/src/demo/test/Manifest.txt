@@ -1,4 +1,0 @@
-Manifest-Version: 1.0
-Class-Path: executable.Main logic.Operation logic.sum logic.Substract
-Created-By: Andrii
-Main-Class: executable.Main
