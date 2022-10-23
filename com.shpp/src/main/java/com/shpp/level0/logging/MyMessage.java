@@ -1,4 +1,4 @@
-package com.shpp.logging;
+package com.shpp.level0.logging;
 
 public class MyMessage {
     String userName;

@@ -2,7 +2,7 @@ package com.shpp.level0;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.fasterxml.jackson.dataformat.xml.XmlMapper;
-import com.shpp.logging.MyMessage;
+import com.shpp.level0.logging.MyMessage;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
