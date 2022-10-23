@@ -31,13 +31,13 @@
         <dependency>
             <groupId>ch.qos.logback</groupId>
             <artifactId>logback-classic</artifactId>
-            <version>1.2.3</version>
+            <version>1.4.4</version>
         </dependency>
-        <dependency>
-            <groupId>com.fasterxml.jackson.core</groupId>
-            <artifactId>jackson-databind</artifactId>
-            <version>2.13.4</version>
-        </dependency>
+<!--        <dependency>-->
+<!--            <groupId>com.fasterxml.jackson.core</groupId>-->
+<!--            <artifactId>jackson-databind</artifactId>-->
+<!--            <version>2.13.4</version>-->
+<!--        </dependency>-->
         <dependency>
             <groupId>com.fasterxml.jackson.dataformat</groupId>
             <artifactId>jackson-dataformat-xml</artifactId>
@@ -60,7 +60,7 @@
                             <archive>
                                 <manifest>
                                     <addClasspath>true</addClasspath>
-                                    <mainClass>com.shpp.level1.MyClass</mainClass>
+                                    <mainClass>com.shpp.level0.MyClass</mainClass>
                                     <classpathPrefix>lib/</classpathPrefix>
                                 </manifest>
                                 <manifestEntries>
@@ -81,7 +81,7 @@
                                 </goals>
                                 <configuration>
                                     <descriptors>
-                                        <descriptor>${project.basedir}/src/assembly/dep.xml</descriptor>
+                                        <descriptor>src/assembly/depAssembly.xml</descriptor>
                                     </descriptors>
                                     <appendAssemblyId>false</appendAssemblyId>
                                 </configuration>
@@ -94,7 +94,7 @@
                             </formats>
                             <archive>
                                 <manifest>
-                                    <mainClass>com.shpp.level1.MyClass</mainClass>
+                                    <mainClass>com.shpp.level0.MyClass</mainClass>
                                     <addClasspath>true</addClasspath>
                                 </manifest>
                             </archive>
@@ -189,7 +189,7 @@
                                     <transformers>
                                         <transformer
                                                 implementation="org.apache.maven.plugins.shade.resource.ManifestResourceTransformer">
-                                            <mainClass>com.shpp.level1.MyClass</mainClass>
+                                            <mainClass>com.shpp.level0.MyClass</mainClass>
                                         </transformer>
                                     </transformers>
                                 </configuration>
@@ -221,7 +221,7 @@
                             </formats>
                             <archive>
                                 <manifest>
-                                    <mainClass>com.shpp.level1.MyClass</mainClass>
+                                    <mainClass>com.shpp.level0.MyClass</mainClass>
                                     <addClasspath>true</addClasspath>
                                 </manifest>
                             </archive>
