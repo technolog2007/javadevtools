@@ -24,7 +24,7 @@ public class MyClass {
         //Load app.properties
         Properties properties = new Properties();
         try {
-            logger.info("Пробую запустить внутренний properties !!!");
+            logger.info("Пробую запустить внутренний properties- !!!");
             InputStream rootPath = MyClass.class.getClassLoader().getResourceAsStream(PROPERTIES_FILE_NAME);
             properties.load(rootPath);
         } catch (Exception e) {
