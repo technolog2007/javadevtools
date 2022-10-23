@@ -1,7 +1,5 @@
 package com.shpp.level1;
 
-import com.fasterxml.jackson.core.JsonGenerator;
-import com.fasterxml.jackson.core.util.JsonGeneratorDelegate;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.fasterxml.jackson.dataformat.xml.XmlMapper;
 import com.shpp.logging.MyMessage;
@@ -31,7 +29,9 @@ public class MyClass {
             properties.load(rootPath);
         } catch (Exception e) {
             logger.debug("Запускаю внешний properties !!!");
+            // F:\Programming\Experiments\com.shpp\target\classes
             File pathJar = new File(MyClass.class.getProtectionDomain().getCodeSource().getLocation().getPath());
+            // F:\Programming\Experiments\com.shpp\target
             String propertyPath = pathJar.getParentFile().getAbsolutePath();
             properties.load(new FileInputStream(propertyPath + File.separator + PROPERTIES_FILE_NAME));
         }
@@ -48,8 +48,9 @@ public class MyClass {
 
         if (flag != null) {
             // generating json file from java objects
-            ObjectMapper objectMapper = new ObjectMapper();
+
             if (flag.equals("json")) {
+                ObjectMapper objectMapper = new ObjectMapper();
                 logger.debug(" Формирую файл *.json !!!");
                 objectMapper.writeValue(new File("message.json"), myMessage);
                 logger.info(objectMapper.writeValueAsString(myMessage));
