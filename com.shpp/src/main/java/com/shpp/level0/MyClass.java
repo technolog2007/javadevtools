@@ -6,10 +6,7 @@ import com.shpp.level0.logging.MyMessage;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
-import java.io.File;
-import java.io.FileInputStream;
-import java.io.IOException;
-import java.io.InputStream;
+import java.io.*;
 import java.util.Properties;
 
 public class MyClass {
@@ -33,7 +30,9 @@ public class MyClass {
             File pathJar = new File(MyClass.class.getProtectionDomain().getCodeSource().getLocation().getPath());
             // F:\Programming\Experiments\com.shpp\target
             String propertyPath = pathJar.getParentFile().getAbsolutePath();
-            properties.load(new FileInputStream(propertyPath + File.separator + PROPERTIES_FILE_NAME));
+            FileInputStream inputStream = new FileInputStream(propertyPath + File.separator + PROPERTIES_FILE_NAME);
+            properties.load(inputStream);
+            inputStream.close();
         }
 
         // Create a message object and pass the PROPERTY_KEY parameter to it
@@ -53,12 +52,14 @@ public class MyClass {
                 ObjectMapper objectMapper = new ObjectMapper();
                 logger.debug(" Формирую файл *.json !!!");
                 objectMapper.writeValue(new File("message.json"), myMessage);
-                logger.info(objectMapper.writeValueAsString(myMessage));
+                String message = objectMapper.writeValueAsString(myMessage);
+                logger.info(message);
             } else if (flag.equals("xml")) {
                 logger.debug(" Формирую файл *.xml !!!");
                 XmlMapper xmlMapper = new XmlMapper();
                 xmlMapper.writeValue(new File("message.xml"), myMessage);
-                logger.info(xmlMapper.writeValueAsString(myMessage));
+                String message = xmlMapper.writeValueAsString(myMessage);
+                logger.info(message);
             }
         } else {
             logger.error(" Please input -Dmessage=json or -Dmessage=xml !!!");
